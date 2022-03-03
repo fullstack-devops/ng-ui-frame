@@ -1,34 +1,26 @@
-<mat-toolbar class="mat-elevation-z8 header-toolbar" color="primary">
-    <button mat-icon-button>
-        <mat-icon (click)="isClosed = !isClosed">{{ isClosed? 'menu':'menu_open'}}</mat-icon>
-    </button>
-    <h3>
-        test
-    </h3>
-</mat-toolbar>
+<div class="main">
+    <div class="header-toolbar">
+        <div class="icon-title">
+            <span class="material-icons" style="font-size: 48px;">
+                menu
+            </span>
+        </div>
+        <div class="content">
+            <a>Application</a>
+        </div>
+    </div>
 
-<mat-drawer-container class="drawer-container" autosize>
-    <mat-drawer #drawer class="drawer-sidenav" mode="side" opened [class.closed]="isClosed">
-        <p>Auto-resizing sidenav</p>
-    </mat-drawer>
-
-    <ng-content select="content"></ng-content>
-
-</mat-drawer-container>
-<!-- 
-
-<div>
     <div class="sidebar" [class.close]="isClosed" [style.width]="isClosed ? '78px': '260px'">
-        <mat-list>
+        <!--  <mat-list>
             <mat-list-item>
                 <mat-icon>dashboard</mat-icon>
                 Dashboard
             </mat-list-item>
-        </mat-list>
+        </mat-list> -->
 
 
         <ul class="nav-links">
-            <li>
+            <!-- <li>
 
                 <button mat-button>
                     Dashboard
@@ -36,9 +28,9 @@
                 <ul class="sub-menu blank">
                     <li><a class="link_name" href="#">Category</a></li>
                 </ul>
-            </li>
+            </li> -->
 
-            <li>
+            <!-- <li>
                 <div class="profile-details">
                     <div class="profile-content">
                     </div>
@@ -48,14 +40,14 @@
                     </div>
                     <i class='bx bx-log-out'></i>
                 </div>
-            </li>
+            </li> -->
         </ul>
     </div>
 
     <div class="content" [style.left]="isClosed ? '78px': '260px'">
         <ng-content select="content"></ng-content>
     </div>
-</div> -->
+</div>
 
 <!-- <div class="sidebar" [class]="isClosed ? 'close': ''">
     <div class="logo-details">

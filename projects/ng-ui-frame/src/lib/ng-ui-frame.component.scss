@@ -1,14 +1,47 @@
-@import "material-icons/iconfont/material-icons.css";
-
 // Toolbar
 .header-toolbar {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
+  height: 64px;
 }
 
-.drawer-container {
+.header-toolbar .icon-title {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 64px;
+  width: 78px;
+
+  background-color: beige;
+  display: flex;
+  padding: 0 16px;
+  float: right;
+  flex-direction: row;
+  align-items: center;
+  white-space: nowrap;
+  letter-spacing: normal;
+}
+
+.header-toolbar .content {
+  position: absolute;
+  top: 0;
+  left: 78px;
+  right: 0;
+  height: 64px;
+
+  background-color: rgb(223, 223, 149);
+  display: flex;
+  padding: 0 16px;
+  float: right;
+  flex-direction: row;
+  align-items: center;
+  white-space: nowrap;
+  letter-spacing: normal;
+}
+
+/*.drawer-container {
   position: fixed;
   top: 64px;
   left: 0;
@@ -30,9 +63,8 @@
 
 .closed {
   width: 64px;
-}
+} */
 
-/* 
 .sidebar {
   position: fixed;
   top: 64px;
@@ -53,12 +85,12 @@
   transition: all 0.3s ease;
 }
 
-
-.sidebar .nav-links{
+.sidebar .nav-links {
   height: 100%;
   padding: 0 0 150px 0;
   overflow: auto;
 }
+/* 
 .sidebar.close .nav-links{
   overflow: visible;
 }
