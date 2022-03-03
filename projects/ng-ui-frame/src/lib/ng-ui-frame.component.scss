@@ -7,63 +7,65 @@
   height: 64px;
 }
 
-.header-toolbar .icon-title {
+.content.opened,
+.header-toolbar.opened .bar-content {
+  left: 264px !important;
+}
+
+.sidebar.opened,
+.header-toolbar.opened .logo-span {
+  width: 264px !important;
+}
+
+.header-toolbar .logo-span {
   position: absolute;
   top: 0;
   left: 0;
   height: 64px;
-  width: 78px;
-
-  background-color: beige;
+  width: 64px;
+  transition: all 0.3s ease;
+  background-color: rgb(39, 39, 39);
   display: flex;
-  padding: 0 16px;
-  float: right;
-  flex-direction: row;
   align-items: center;
+  justify-content: space-around;
   white-space: nowrap;
-  letter-spacing: normal;
+  border-bottom: 1px solid rgba($color: #000000, $alpha: 0.2);
 }
 
-.header-toolbar .content {
+.header-toolbar .logo-span::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.122);
+}
+
+.header-toolbar button {
+  padding: 0;
+  min-width: 0;
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  line-height: 40px;
+  border-radius: 50%;
+}
+
+.header-toolbar .bar-content {
   position: absolute;
   top: 0;
-  left: 78px;
+  left: 64px;
   right: 0;
   height: 64px;
-
+  transition: all 0.3s ease;
   background-color: rgb(223, 223, 149);
   display: flex;
   padding: 0 16px;
-  float: right;
   flex-direction: row;
   align-items: center;
   white-space: nowrap;
   letter-spacing: normal;
 }
-
-/*.drawer-container {
-  position: fixed;
-  top: 64px;
-  left: 0;
-  right: 0;
-  bottom: 0;
-}
-
-.drawer-sidenav-content {
-  display: flex;
-  height: 100%;
-  align-items: center;
-  justify-content: center;
-}
-
-.drawer-sidenav {
-  background: lightblue;
-  padding: 20px;
-}
-
-.closed {
-  width: 64px;
-} */
 
 .sidebar {
   position: fixed;
@@ -71,8 +73,26 @@
   left: 0;
   bottom: 0;
   width: 64px;
-  background: #958cfd;
+  background: rgb(39, 39, 39);
   transition: all 0.3s ease;
+}
+
+.sidebar .nav-links {
+  height: 100%;
+  padding: 0 0 150px 0;
+  overflow: auto;
+}
+
+.sidebar .profile {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 64px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  white-space: nowrap;
 }
 
 .content {
@@ -85,11 +105,6 @@
   transition: all 0.3s ease;
 }
 
-.sidebar .nav-links {
-  height: 100%;
-  padding: 0 0 150px 0;
-  overflow: auto;
-}
 /* 
 .sidebar.close .nav-links{
   overflow: visible;

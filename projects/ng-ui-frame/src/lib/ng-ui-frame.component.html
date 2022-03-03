@@ -1,50 +1,33 @@
 <div class="main">
-    <div class="header-toolbar">
-        <div class="icon-title">
-            <span class="material-icons" style="font-size: 48px;">
-                menu
-            </span>
+    <div class="header-toolbar" [class.opened]="!isClosed">
+        <div class="logo-span">
+            <button mat-icon-button (click)="isClosed = !isClosed">
+                <span class="material-icons">
+                    menu
+                </span>
+            </button>
         </div>
-        <div class="content">
+        <div class="bar-content">
             <a>Application</a>
         </div>
     </div>
 
-    <div class="sidebar" [class.close]="isClosed" [style.width]="isClosed ? '78px': '260px'">
-        <!--  <mat-list>
-            <mat-list-item>
-                <mat-icon>dashboard</mat-icon>
-                Dashboard
-            </mat-list-item>
-        </mat-list> -->
-
-
-        <ul class="nav-links">
-            <!-- <li>
-
-                <button mat-button>
-                    Dashboard
-                </button>
-                <ul class="sub-menu blank">
-                    <li><a class="link_name" href="#">Category</a></li>
-                </ul>
-            </li> -->
-
-            <!-- <li>
-                <div class="profile-details">
-                    <div class="profile-content">
-                    </div>
-                    <div class="name-job">
-                        <div class="profile_name">Prem Shahi</div>
-                        <div class="job">Web Desginer</div>
-                    </div>
-                    <i class='bx bx-log-out'></i>
-                </div>
-            </li> -->
-        </ul>
+    <div class="sidebar" [class.opened]="!isClosed">
+        <div class="profile">
+            <span class="material-icons" style="font-size: 48px;">
+                account_circle
+            </span>
+            <div class="user-infos" style="display: table;">
+                <span *ngIf="!isClosed" style="font-size: 14px;">Some Name</span><br>
+                <span *ngIf="!isClosed" style="font-size: 10px;">Engineer</span>
+            </div>
+            <span *ngIf="!isClosed" class="material-icons" style="font-size: 32px;">
+                logout
+            </span>
+        </div>
     </div>
 
-    <div class="content" [style.left]="isClosed ? '78px': '260px'">
+    <div class="content" [class.opened]="!isClosed">
         <ng-content select="content"></ng-content>
     </div>
 </div>

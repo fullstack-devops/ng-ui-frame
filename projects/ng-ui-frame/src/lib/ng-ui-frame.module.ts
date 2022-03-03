@@ -3,6 +3,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgUiFrameComponent } from './ng-ui-frame.component';
 
 import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
 import { BrowserModule } from '@angular/platform-browser';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
 
@@ -16,6 +17,7 @@ import { ToolbarComponent } from './components/toolbar/toolbar.component';
     BrowserModule,
     BrowserAnimationsModule,
     MatIconModule,
+    MatButtonModule,
   ],
   exports: [
     NgUiFrameComponent,
