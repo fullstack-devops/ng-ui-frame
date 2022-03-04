@@ -1,79 +1,82 @@
+$toolbar-height: 48px;
+$toolbar-width-closed: 64px;
+$toolbar-width-opened: 264px;
+
 // Toolbar
 .header-toolbar {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
-  height: 64px;
+  height: $toolbar-height;
 }
 
 .content.opened,
 .header-toolbar.opened .bar-content {
-  left: 264px !important;
+  left: $toolbar-width-opened !important;
 }
 
 .sidebar.opened,
 .header-toolbar.opened .logo-span {
-  width: 264px !important;
+  width: $toolbar-width-opened !important;
 }
 
+.header-toolbar.opened .logo-span {
+  justify-content: space-between;
+}
 .header-toolbar .logo-span {
   position: absolute;
   top: 0;
   left: 0;
-  height: 64px;
-  width: 64px;
+  height: $toolbar-height;
+  width: $toolbar-width-closed;
   transition: all 0.3s ease;
-  background-color: rgb(39, 39, 39);
   display: flex;
   align-items: center;
-  justify-content: space-around;
   white-space: nowrap;
-  border-bottom: 1px solid rgba($color: #000000, $alpha: 0.2);
 }
 
-.header-toolbar .logo-span::before {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.122);
+.header-toolbar .logo-span .app-name {
+  width: calc(100% - $toolbar-width-closed);
+  font-size: 24px;
 }
 
-.header-toolbar button {
-  padding: 0;
-  min-width: 0;
-  width: 40px;
-  height: 40px;
-  flex-shrink: 0;
-  line-height: 40px;
-  border-radius: 50%;
+.header-toolbar .logo-span .logo {
+  width: $toolbar-width-closed;
+  height: $toolbar-height;
+  display: flex;
+  justify-content: center;
+}
+
+.header-toolbar .logo-span .logo button {
+  width: $toolbar-height;
+  height: $toolbar-height;
 }
 
 .header-toolbar .bar-content {
   position: absolute;
   top: 0;
-  left: 64px;
+  left: $toolbar-width-closed;
   right: 0;
-  height: 64px;
+  height: $toolbar-height;
   transition: all 0.3s ease;
-  background-color: rgb(223, 223, 149);
   display: flex;
   padding: 0 16px;
   flex-direction: row;
   align-items: center;
   white-space: nowrap;
   letter-spacing: normal;
+  border-top-left-radius: 8px;
+  overflow-y: hidden;
+  overflow-x: auto;
 }
 
 .sidebar {
   position: fixed;
-  top: 64px;
+  top: $toolbar-height;
   left: 0;
   bottom: 0;
-  width: 64px;
-  background: rgb(39, 39, 39);
+  width: $toolbar-width-closed;
   transition: all 0.3s ease;
 }
 
@@ -83,28 +86,89 @@
   overflow: auto;
 }
 
+.sidebar .app-name {
+  width: 100%;
+  height: 24px;
+  display: flex;
+  justify-content: center;
+  margin: 5px 0;
+}
+
 .sidebar .profile {
   position: absolute;
+  width: 100%;
   left: 0;
   bottom: 0;
-  height: 64px;
-  width: 100%;
+  height: $toolbar-width-closed;
+  transition: all 0.3s ease;
   display: flex;
   align-items: center;
-  justify-content: space-around;
   white-space: nowrap;
+}
+
+.sidebar .profile div {
+  width: calc(100% - $toolbar-width-closed);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  white-space: nowrap;
+}
+
+.sidebar .profile .profile-picture {
+  width: $toolbar-width-closed;
+  display: flex;
+  justify-content: center;
+}
+
+.sidebar .profile .user-infos {
+  display: table;
 }
 
 .content {
   position: fixed;
-  top: 64px;
-  left: 64px;
+  top: $toolbar-height;
+  left: $toolbar-width-closed;
   right: 0;
   bottom: 0;
   padding: 8px;
   transition: all 0.3s ease;
 }
 
+.nav-links li {
+  position: relative;
+  list-style: none;
+  transition: all 0.4s ease;
+  text-decoration: none;
+}
+
+.nav-links li button {
+  width: 100%;
+  height: 64px;
+  border-radius: unset;
+}
+
+.nav-links li button {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.custom-list-button {
+  padding: 0 6px 0 6px;
+  margin: 6px 8px 6px 8px;
+  min-width: 88px;
+  border-radius: 3px;
+  font-size: 14px;
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: none;
+  outline: none;
+}
+
+.nav-links li button .link-name {
+  margin-left: 16px;
+}
 /* 
 .sidebar.close .nav-links{
   overflow: visible;

@@ -6,6 +6,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { BrowserModule } from '@angular/platform-browser';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatMenuModule } from '@angular/material/menu';
 
 
 @NgModule({
@@ -18,6 +20,8 @@ import { ToolbarComponent } from './components/toolbar/toolbar.component';
     BrowserAnimationsModule,
     MatIconModule,
     MatButtonModule,
+    MatDividerModule,
+    MatMenuModule
   ],
   exports: [
     NgUiFrameComponent,
