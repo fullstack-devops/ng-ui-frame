@@ -1,0 +1,217 @@
+<div class="main">
+    <div class="header-toolbar  mat-elevation-z4" [class.opened]="!isClosed">
+        <div class="logo-span">
+            <div class="logo">
+                <button mat-icon-button (click)="isClosed = !isClosed">
+                    <div class="logo-picture" *ngIf="frameConfig.logo != ''"
+                        style="background-image: url('{{ frameConfig.logo }}');">
+
+                    </div>
+                    <span class="material-icons" *ngIf="frameConfig.logo === ''">
+                        menu
+                    </span>
+                </button>
+            </div>
+            <div class="app-name" *ngIf="!isClosed">
+                <span>{{frameConfig.appName}}</span>
+            </div>
+        </div>
+
+        <div class="bar-content">
+            <a>Application</a>
+
+            <span style="width: 100px;"></span>
+
+            <!-- <input type="text" placeholder="Search.."> -->
+
+            <button mat-raised-button color="primary">
+                <span class="material-icons">
+                    add
+                </span>
+                test
+            </button>
+            <ng-content></ng-content>
+        </div>
+
+    </div>
+
+    <div class="sidebar" [class.opened]="!isClosed">
+        <!-- Logo / Branding -->
+        <div class="app-name">
+            <span *ngIf="isClosed">{{frameConfig.appNameShort}}</span>
+        </div>
+
+        <!-- Navigation -->
+        <ul class="nav-links">
+            <li>
+                <button mat-button *ngFor="let item of navList" [class.active]="item.name === isActiveNav"
+                    (click)="setNavActive(item.name)" [routerLink]="item.link">
+                    <span class="material-icons">
+                        {{item.icon}}
+                    </span>
+                    <span class="link-name" *ngIf="!isClosed">{{item.name}}</span>
+                </button>
+            </li>
+        </ul>
+
+        <!-- User Profile -->
+        <div class="profile" *ngIf="navUser != undefined">
+            <div class="profile-picture-wrapper">
+                <div class="profile-picture" *ngIf="navUser.profilePicture != ''"
+                    style="background-image: url('{{ navUser.profilePicture }}');">
+
+                </div>
+                <span class="material-icons" style="font-size: 48px;" *ngIf="navUser.profilePicture === ''">
+                    account_circle
+                </span>
+            </div>
+            <div *ngIf="!isClosed">
+                <div class="user-infos">
+                    <span style="font-size: 14px;">{{navUser.name}}</span>
+                    <span style="font-size: 10px;">{{navUser.role}}</span>
+                </div>
+                <button mat-icon-button>
+                    <span class="material-icons">
+                        settings
+                    </span>
+                </button>
+                <button mat-icon-button>
+                    <span class="material-icons">
+                        logout
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="app-content" [class.opened]="!isClosed">
+        <!-- <div style="width: 100%; height: 100%;"> -->
+        <ng-content select="content"></ng-content>
+        <!-- </div> -->
+    </div>
+</div>
+
+<!-- <div class="sidebar" [class]="isClosed ? 'close': ''">
+    <div class="logo-details">
+        <i class='bx bxl-c-plus-plus'></i>
+        <span class="logo_name">CodingLab</span>
+    </div>
+    <ul class="nav-links">
+        <li>
+            <a href="#">
+                <i class='bx bx-grid-alt'></i>
+                <span class="link_name">Dashboard</span>
+            </a>
+            <ul class="sub-menu blank">
+                <li><a class="link_name" href="#">Category</a></li>
+            </ul>
+        </li>
+        <li>
+            <div class="iocn-link">
+                <a href="#">
+                    <i class='bx bx-collection'></i>
+                    <span class="link_name">Category</span>
+                </a>
+                <i class='bx bxs-chevron-down arrow'></i>
+            </div>
+            <ul class="sub-menu">
+                <li><a class="link_name" href="#">Category</a></li>
+                <li><a href="#">HTML & CSS</a></li>
+                <li><a href="#">JavaScript</a></li>
+                <li><a href="#">PHP & MySQL</a></li>
+            </ul>
+        </li>
+        <li>
+            <div class="iocn-link">
+                <a href="#">
+                    <i class='bx bx-book-alt'></i>
+                    <span class="link_name">Posts</span>
+                </a>
+                <i class='bx bxs-chevron-down arrow'></i>
+            </div>
+            <ul class="sub-menu">
+                <li><a class="link_name" href="#">Posts</a></li>
+                <li><a href="#">Web Design</a></li>
+                <li><a href="#">Login Form</a></li>
+                <li><a href="#">Card Design</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#">
+                <i class='bx bx-pie-chart-alt-2'></i>
+                <span class="link_name">Analytics</span>
+            </a>
+            <ul class="sub-menu blank">
+                <li><a class="link_name" href="#">Analytics</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#">
+                <i class='bx bx-line-chart'></i>
+                <span class="link_name">Chart</span>
+            </a>
+            <ul class="sub-menu blank">
+                <li><a class="link_name" href="#">Chart</a></li>
+            </ul>
+        </li>
+        <li>
+            <div class="iocn-link">
+                <a href="#">
+                    <i class='bx bx-plug'></i>
+                    <span class="link_name">Plugins</span>
+                </a>
+                <i class='bx bxs-chevron-down arrow'></i>
+            </div>
+            <ul class="sub-menu">
+                <li><a class="link_name" href="#">Plugins</a></li>
+                <li><a href="#">UI Face</a></li>
+                <li><a href="#">Pigments</a></li>
+                <li><a href="#">Box Icons</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#">
+                <i class='bx bx-compass'></i>
+                <span class="link_name">Explore</span>
+            </a>
+            <ul class="sub-menu blank">
+                <li><a class="link_name" href="#">Explore</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#">
+                <i class='bx bx-history'></i>
+                <span class="link_name">History</span>
+            </a>
+            <ul class="sub-menu blank">
+                <li><a class="link_name" href="#">History</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#">
+                <i class='bx bx-cog'></i>
+                <span class="link_name">Setting</span>
+            </a>
+            <ul class="sub-menu blank">
+                <li><a class="link_name" href="#">Setting</a></li>
+            </ul>
+        </li>
+        <li>
+            <div class="profile-details">
+                <div class="profile-content">
+                </div>
+                <div class="name-job">
+                    <div class="profile_name">Prem Shahi</div>
+                    <div class="job">Web Desginer</div>
+                </div>
+                <i class='bx bx-log-out'></i>
+            </div>
+        </li>
+    </ul>
+</div>
+<section class="home-section">
+    <div class="home-content">
+        <i class='bx bx-menu' (click)="toggleSidebar()"></i>
+        <span class="text">Drop Down Sidebar</span>
+    </div>
+</section> -->
