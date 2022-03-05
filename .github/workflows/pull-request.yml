@@ -38,4 +38,4 @@ jobs:
         working-directory: dist/ng-ui-frame
         run: |
           yarn version ${{ needs.generate_infos.outputs.version }}
-          yarn publish -dry-run
+          yarn publish --dry-run

@@ -5,7 +5,6 @@ import { NgUiFrameComponent } from './ng-ui-frame.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { BrowserModule } from '@angular/platform-browser';
-import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatMenuModule } from '@angular/material/menu';
 import { RouterModule } from '@angular/router';
@@ -13,8 +12,7 @@ import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
-    NgUiFrameComponent,
-    ToolbarComponent
+    NgUiFrameComponent
   ],
   imports: [
     BrowserModule,
@@ -26,8 +24,7 @@ import { RouterModule } from '@angular/router';
     MatMenuModule
   ],
   exports: [
-    NgUiFrameComponent,
-    ToolbarComponent
+    NgUiFrameComponent
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA

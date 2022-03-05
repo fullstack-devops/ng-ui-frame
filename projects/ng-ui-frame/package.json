@@ -6,12 +6,12 @@
     "url": "https://github.com/fullstack-devops/ng-ui-frame.git"
   },
   "peerDependencies": {
+    "@angular/material": "^13.2.1",
     "@angular/common": "^13.2.0",
+    "material-icons": "^1.10.6",
     "@angular/core": "^13.2.0"
   },
   "dependencies": {
-    "@angular/material": "^13.2.1",
-    "material-icons": "^1.10.6",
     "tslib": "^2.3.0"
   }
 }

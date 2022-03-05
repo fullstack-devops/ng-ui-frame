@@ -4,7 +4,8 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "prebuild": "cp README.md projects/ng-ui-frame/",
+    "build": "ng build ng-ui-frame --configuration production",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
