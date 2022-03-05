@@ -40,8 +40,8 @@
         <!-- Navigation -->
         <ul class="nav-links">
             <li>
-                <button mat-button *ngFor="let item of navlist" [class.active]="item.name === isActiveNav"
-                    (click)="setNavActive(item.name)">
+                <button mat-button *ngFor="let item of navList" [class.active]="item.name === isActiveNav"
+                    (click)="setNavActive(item.name)" [routerLink]="item.link">
                     <span class="material-icons">
                         {{item.icon}}
                     </span>
@@ -51,16 +51,20 @@
         </ul>
 
         <!-- User Profile -->
-        <div class="profile">
-            <div class="profile-picture">
-                <span class="material-icons" style="font-size: 48px;">
+        <div class="profile" *ngIf="navUser != undefined">
+            <div class="profile-picture-wrapper">
+                <div class="profile-picture" *ngIf="navUser.profilePicture != ''"
+                    style="background-image: url('{{ navUser.profilePicture }}');">
+
+                </div>
+                <span class="material-icons" style="font-size: 48px;" *ngIf="navUser.profilePicture === ''">
                     account_circle
                 </span>
             </div>
             <div *ngIf="!isClosed">
                 <div class="user-infos">
-                    <span style="font-size: 14px;">Some Name</span><br>
-                    <span style="font-size: 10px;">Engineer</span>
+                    <span style="font-size: 14px;">{{navUser.name}}</span>
+                    <span style="font-size: 10px;">{{navUser.role}}</span>
                 </div>
                 <button mat-icon-button>
                     <span class="material-icons">
@@ -76,8 +80,10 @@
         </div>
     </div>
 
-    <div class="content mat-app-background" [class.opened]="!isClosed">
-        <ng-content select="content"></ng-content>
+    <div class="app-content" [class.opened]="!isClosed">
+        <!-- <div style="width: 100%; height: 100%;"> -->
+            <ng-content select="content"></ng-content>
+        <!-- </div> -->
     </div>
 </div>
 

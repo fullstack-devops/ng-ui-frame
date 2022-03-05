@@ -44,7 +44,9 @@
     // background-color: rgba($color:  mat-color($primary, default), $alpha: 0.1);
   }
 
-  .main .content {
+  .main .app-content {
     z-index: -1;
+    color: mat-color($foreground, text);
+    background-color: lighten($color: mat-color($background, background), $amount: 3%);
   }
 }

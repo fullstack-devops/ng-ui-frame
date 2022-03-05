@@ -1,10 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-
-export interface NavItem {
-  name: string;
-  icon: string;
-  link: string;
-}
+import { Component, Input, OnInit } from '@angular/core';
+import { NavItem, NavUser } from './ng-ui-frame.modules';
 
 @Component({
   selector: 'ng-ui-frame',
@@ -13,26 +8,13 @@ export interface NavItem {
 })
 export class NgUiFrameComponent implements OnInit {
 
+  @Input() navUser: NavUser | undefined;
+  @Input() navList: NavItem[] = [];
+
   isClosed: boolean = true
   isActiveNav: string = ''
 
-  navlist: NavItem[] = [
-    {
-      name: 'Dashboard',
-      icon: 'dashboard',
-      link: 'test'
-    },
-    {
-      name: 'Home',
-      icon: 'home',
-      link: 'test'
-    },
-    {
-      name: 'Settings',
-      icon: 'settings',
-      link: 'test'
-    }
-  ]
+  
 
   constructor() { }
 

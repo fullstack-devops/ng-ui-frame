@@ -4,14 +4,14 @@ $toolbar-width-opened: 264px;
 
 // Toolbar
 .header-toolbar {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
   height: $toolbar-height;
 }
 
-.content.opened,
+.app-content.opened,
 .header-toolbar.opened .bar-content {
   left: $toolbar-width-opened !important;
 }
@@ -25,7 +25,7 @@ $toolbar-width-opened: 264px;
   justify-content: space-between;
 }
 .header-toolbar .logo-span {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   height: $toolbar-height;
@@ -54,7 +54,7 @@ $toolbar-width-opened: 264px;
 }
 
 .header-toolbar .bar-content {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: $toolbar-width-closed;
   right: 0;
@@ -114,25 +114,36 @@ $toolbar-width-opened: 264px;
   white-space: nowrap;
 }
 
-.sidebar .profile .profile-picture {
+.sidebar .profile .profile-picture-wrapper {
   width: $toolbar-width-closed;
   display: flex;
   justify-content: center;
 }
 
-.sidebar .profile .user-infos {
-  display: table;
+.sidebar .profile .profile-picture {
+  background-size: cover;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  object-fit: cover;
 }
 
-.content {
-  position: fixed;
+.sidebar .profile .user-infos {
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+}
+
+.app-content {
+  position: absolute;
   top: $toolbar-height;
   left: $toolbar-width-closed;
   right: 0;
-  bottom: 0;
+  // bottom: 0;
   padding: 8px;
   transition: all 0.3s ease;
-}
+  }
 
 .nav-links li {
   position: relative;

@@ -8,6 +8,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatMenuModule } from '@angular/material/menu';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
@@ -18,6 +19,7 @@ import { MatMenuModule } from '@angular/material/menu';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    RouterModule,
     MatIconModule,
     MatButtonModule,
     MatDividerModule,
