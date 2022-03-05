@@ -37,5 +37,4 @@ jobs:
       - name: dryrun publish
         working-directory: dist/ng-ui-frame
         run: |
-          yarn version ${{ needs.generate_infos.outputs.version }}
-          yarn publish --dry-run
+          yarn publish --new-version ${{ needs.generate_infos.outputs.version }} --dry-run
