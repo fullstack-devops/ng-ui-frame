@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { NavItem, NavUser } from './ng-ui-frame.modules';
+import { NavItem, NavUser, FrameConfig, stringOfLength } from './ng-ui-frame.modules';
 
 @Component({
   selector: 'ng-ui-frame',
@@ -10,11 +10,16 @@ export class NgUiFrameComponent implements OnInit {
 
   @Input() navUser: NavUser | undefined;
   @Input() navList: NavItem[] = [];
+  @Input() frameConfig: FrameConfig = {
+    appName: 'Dummy App',
+    // appNameShort: stringOfLength('DUMMY', 0, 6),
+    logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Angular_full_color_logo.svg/1024px-Angular_full_color_logo.svg.png'
+  };
 
   isClosed: boolean = true
   isActiveNav: string = ''
 
-  
+
 
   constructor() { }
 

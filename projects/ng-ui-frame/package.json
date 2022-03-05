@@ -1,6 +1,10 @@
 {
   "name": "ng-ui-frame",
   "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fullstack-devops/ng-ui-frame.git"
+  },
   "peerDependencies": {
     "@angular/common": "^13.2.0",
     "@angular/core": "^13.2.0"

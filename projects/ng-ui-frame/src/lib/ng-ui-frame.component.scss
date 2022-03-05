@@ -9,6 +9,8 @@ $toolbar-width-opened: 264px;
   left: 0;
   right: 0;
   height: $toolbar-height;
+  /* box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
+    0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12); */
 }
 
 .app-content.opened,
@@ -48,6 +50,14 @@ $toolbar-width-opened: 264px;
   justify-content: center;
 }
 
+.logo-span .logo .logo-picture {
+  background-size: cover;
+  height: 40px;
+  width: 40px;
+  flex-shrink: 0;
+  object-fit: cover;
+}
+
 .header-toolbar .logo-span .logo button {
   width: $toolbar-height;
   height: $toolbar-height;
@@ -78,6 +88,8 @@ $toolbar-width-opened: 264px;
   bottom: 0;
   width: $toolbar-width-closed;
   transition: all 0.3s ease;
+  box-shadow: 5px 2px 4px -1px rgba(0, 0, 0, 0.2),
+    4px 4px 5px 0px rgba(0, 0, 0, 0.14);
 }
 
 .sidebar .nav-links {
@@ -141,9 +153,9 @@ $toolbar-width-opened: 264px;
   left: $toolbar-width-closed;
   right: 0;
   // bottom: 0;
-  padding: 8px;
+  padding: 16px;
   transition: all 0.3s ease;
-  }
+}
 
 .nav-links li {
   position: relative;

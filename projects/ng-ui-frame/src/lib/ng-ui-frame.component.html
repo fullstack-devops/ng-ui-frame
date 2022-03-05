@@ -1,19 +1,23 @@
 <div class="main">
-    <div class="header-toolbar" [class.opened]="!isClosed">
+    <div class="header-toolbar  mat-elevation-z4" [class.opened]="!isClosed">
         <div class="logo-span">
             <div class="logo">
                 <button mat-icon-button (click)="isClosed = !isClosed">
-                    <span class="material-icons">
+                    <div class="logo-picture" *ngIf="frameConfig.logo != ''"
+                        style="background-image: url('{{ frameConfig.logo }}');">
+
+                    </div>
+                    <span class="material-icons" *ngIf="frameConfig.logo === ''">
                         menu
                     </span>
                 </button>
             </div>
             <div class="app-name" *ngIf="!isClosed">
-                <span>FINISH</span>
+                <span>{{frameConfig.appName}}</span>
             </div>
         </div>
 
-        <div class="bar-content mat-elevation-z4">
+        <div class="bar-content">
             <a>Application</a>
 
             <span style="width: 100px;"></span>
@@ -31,10 +35,10 @@
 
     </div>
 
-    <div class="sidebar mat-elevation-z4" [class.opened]="!isClosed">
+    <div class="sidebar" [class.opened]="!isClosed">
         <!-- Logo / Branding -->
         <div class="app-name">
-            <span *ngIf="isClosed">FINISH</span>
+            <span *ngIf="isClosed">{{frameConfig.appNameShort}}</span>
         </div>
 
         <!-- Navigation -->
@@ -82,7 +86,7 @@
 
     <div class="app-content" [class.opened]="!isClosed">
         <!-- <div style="width: 100%; height: 100%;"> -->
-            <ng-content select="content"></ng-content>
+        <ng-content select="content"></ng-content>
         <!-- </div> -->
     </div>
 </div>
