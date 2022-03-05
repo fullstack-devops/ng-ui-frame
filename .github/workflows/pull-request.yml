@@ -16,9 +16,6 @@ jobs:
 
   build:
     runs-on: ubuntu-latest
-    permissions: 
-      contents: read
-      packages: write 
     needs: generate_infos
     steps:
       - name: Checkout code
