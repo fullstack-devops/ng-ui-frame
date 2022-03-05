@@ -32,16 +32,18 @@ jobs:
         with:
           node-version: "16.x"
           registry-url: "https://npm.pkg.github.com"
+          scope: "@fullstack-devops"
 
       - name: install packages
         run: yarn
       - name: build applikation
         run: yarn run build
 
-      - name: yarn publish
+      - name: npm publish
         working-directory: dist/ng-ui-frame
         run: |
-          yarn publish --new-version ${{ needs.create_release.outputs.version }}
+          npm version ${{ needs.create_release.outputs.version }}
+          npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
