@@ -38,11 +38,10 @@ jobs:
       - name: build applikation
         run: yarn run build
 
-      - name: dryrun publish
+      - name: yarn publish
         working-directory: dist/ng-ui-frame
         run: |
-          yarn version ${{ needs.generate_infos.outputs.version }}
-          yarn publish -dry-run
+          yarn publish --new-version ${{ needs.generate_infos.outputs.version }}
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
