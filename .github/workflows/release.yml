@@ -43,7 +43,7 @@ jobs:
         run: |
           yarn publish --new-version ${{ needs.create_release.outputs.version }}
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Publish release
         run: awesome-ci release publish -releaseid "${{ needs.create_release.outputs.releaseid }}"
