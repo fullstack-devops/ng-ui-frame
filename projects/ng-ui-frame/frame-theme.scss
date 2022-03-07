@@ -15,12 +15,12 @@
     fill: mat-color($foreground, text);
   }
 
-  .header-toolbar {
+  .frame-toolbar-logo {
     background-color: mat-color($background, app-bar);
     color: mat-color($foreground, text);
   }
 
-  .header-toolbar .bar-content {
+  .header-toolbar .frame-toolbar {
     background-color: mat-color($background, background);
     color: mat-color($foreground, text);
   }
@@ -44,8 +44,7 @@
     // background-color: rgba($color:  mat-color($primary, default), $alpha: 0.1);
   }
 
-  .main .app-content {
-    z-index: -1;
+  .frame-app-content {
     color: mat-color($foreground, text);
     background-color: lighten($color: mat-color($background, background), $amount: 3%);
   }

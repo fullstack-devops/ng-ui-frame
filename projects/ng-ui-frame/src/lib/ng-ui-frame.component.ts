@@ -4,7 +4,10 @@ import { NavItem, NavUser, FrameConfig, stringOfLength } from './ng-ui-frame.mod
 @Component({
   selector: 'ng-ui-frame',
   templateUrl: './ng-ui-frame.component.html',
-  styleUrls: ['./ng-ui-frame.component.scss']
+  styleUrls: ['./ng-ui-frame.component.scss'],
+  host: {
+    'class': 'ui-frame',
+  },
 })
 export class NgUiFrameComponent implements OnInit {
 
