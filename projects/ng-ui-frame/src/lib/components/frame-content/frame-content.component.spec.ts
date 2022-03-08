@@ -5,7 +5,7 @@ import { DebugElement } from '@angular/core';
 
 import { FrameContentComponent } from './frame-content.component';
 
-describe('FrameAppContentComponent', () => {
+describe('FrameContentComponent', () => {
   let component: FrameContentComponent;
   let fixture: ComponentFixture<FrameContentComponent>;
 
