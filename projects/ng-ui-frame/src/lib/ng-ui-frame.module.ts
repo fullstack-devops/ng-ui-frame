@@ -9,7 +9,7 @@ import { RouterModule } from '@angular/router';
 
 import { NgUiFrameComponent } from './ng-ui-frame.component';
 import { FrameToolbarComponent } from './components/frame-toolbar/frame-toolbar.component';
-import { FrameAppContentComponent } from './components/frame-app-content/frame-app-content.component';
+import { FrameContentComponent } from './components/frame-content/frame-content.component';
 
 import { FrameToolbarTitleDirective } from './components/frame-toolbar/directives/frame-toolbar-title.directive';
 import { FrameToolbarCenterDirective } from './components/frame-toolbar/directives/frame-toolbar-center.directive';
@@ -20,7 +20,7 @@ import { FrameToolbarSideDirective } from './components/frame-toolbar/directives
   declarations: [
     NgUiFrameComponent,
     FrameToolbarComponent,
-    FrameAppContentComponent,
+    FrameContentComponent,
     /* Direktives */
     FrameToolbarTitleDirective,
     FrameToolbarCenterDirective,
@@ -38,7 +38,7 @@ import { FrameToolbarSideDirective } from './components/frame-toolbar/directives
   exports: [
     NgUiFrameComponent,
     FrameToolbarComponent,
-    FrameAppContentComponent,
+    FrameContentComponent,
     /* Direktives */
     FrameToolbarTitleDirective,
     FrameToolbarCenterDirective,

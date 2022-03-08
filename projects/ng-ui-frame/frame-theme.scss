@@ -45,7 +45,7 @@
     // background-color: rgba($color:  mat-color($primary, default), $alpha: 0.1);
   }
 
-  .frame-app-content {
+  .frame-content {
     color: mat-color($foreground, text);
     background-color: lighten($color: mat-color($background, background), $amount: 3%);
   }

@@ -24,7 +24,7 @@ $toolbar-width-opened: 264px;
     0px 1px 10px 0px rgba(0, 0, 0, 0.12);
 }
 
-::ng-deep .frame-app-content.opened,
+::ng-deep .frame-content.opened,
 ::ng-deep .frame-toolbar.opened {
   left: $toolbar-width-opened !important;
 }
@@ -173,7 +173,7 @@ $toolbar-width-opened: 264px;
   margin-left: 16px;
 }
 
-::ng-deep .frame-app-content {
+::ng-deep .frame-content {
   position: fixed;
   top: $toolbar-height;
   left: $toolbar-width-closed;
