@@ -15,12 +15,13 @@
     fill: mat-color($foreground, text);
   }
 
-  .header-toolbar {
+  .frame-toolbar-logo,
+  .frame-toolbar-logo .logo-span {
     background-color: mat-color($background, app-bar);
     color: mat-color($foreground, text);
   }
 
-  .header-toolbar .bar-content {
+  .frame-toolbar {
     background-color: mat-color($background, background);
     color: mat-color($foreground, text);
   }
@@ -36,7 +37,7 @@
 
   .sidebar .nav-links li .active {
     border-left: 4px mat-color($primary, default) inset;
-    background-color: rgba($color:  mat-color($primary, default), $alpha: 0.1);
+    background-color: rgba($color: mat-color($primary, default), $alpha: 0.1);
   }
 
   .sidebar .nav-links li button:not(.active) {
@@ -44,8 +45,7 @@
     // background-color: rgba($color:  mat-color($primary, default), $alpha: 0.1);
   }
 
-  .main .app-content {
-    z-index: -1;
+  .frame-content {
     color: mat-color($foreground, text);
     background-color: lighten($color: mat-color($background, background), $amount: 3%);
   }

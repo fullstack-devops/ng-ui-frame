@@ -2,94 +2,84 @@ $toolbar-height: 48px;
 $toolbar-width-closed: 64px;
 $toolbar-width-opened: 264px;
 
-// Toolbar
-.header-toolbar {
+// Toolbar-logo
+.frame-toolbar-logo {
   position: fixed;
+  z-index: 1;
   top: 0;
   left: 0;
+  width: $toolbar-width-closed;
+  height: $toolbar-height;
+  transition: all 0.3s ease-in-out;
+}
+::ng-deep .frame-toolbar {
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: $toolbar-width-closed;
+  transition: all 0.3s ease-in-out;
   right: 0;
   height: $toolbar-height;
-  /* box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
-    0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12); */
+  box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14),
+    0px 1px 10px 0px rgba(0, 0, 0, 0.12);
 }
 
-.app-content.opened,
-.header-toolbar.opened .bar-content {
+::ng-deep .frame-content.opened,
+::ng-deep .frame-toolbar.opened {
   left: $toolbar-width-opened !important;
 }
 
 .sidebar.opened,
-.header-toolbar.opened .logo-span {
+.frame-toolbar-logo.opened {
   width: $toolbar-width-opened !important;
 }
 
-.header-toolbar.opened .logo-span {
+.frame-toolbar-logo .logo-span {
+  width: 100%;
+  height: $toolbar-height;
+  white-space: nowrap;
+  display: flex;
   justify-content: space-between;
 }
-.header-toolbar .logo-span {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: $toolbar-height;
-  width: $toolbar-width-closed;
-  transition: all 0.3s ease;
-  display: flex;
-  align-items: center;
-  white-space: nowrap;
-}
 
-.header-toolbar .logo-span .app-name {
+.frame-toolbar-logo .logo-span .app-name {
   width: calc(100% - $toolbar-width-closed);
+  height: $toolbar-height;
   font-size: 24px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 }
 
-.header-toolbar .logo-span .logo {
+.frame-toolbar-logo .logo-span .logo {
   width: $toolbar-width-closed;
   height: $toolbar-height;
   display: flex;
   justify-content: center;
 }
 
-.logo-span .logo .logo-picture {
+.frame-toolbar-logo .logo-span .logo .logo-picture {
   background-size: cover;
-  height: 40px;
-  width: 40px;
+  height: 48px;
+  width: 48px;
   flex-shrink: 0;
   object-fit: cover;
 }
 
-.header-toolbar .logo-span .logo button {
+.frame-toolbar-logo .logo-span .logo button {
   width: $toolbar-height;
   height: $toolbar-height;
 }
 
-.header-toolbar .bar-content {
-  position: fixed;
-  top: 0;
-  left: $toolbar-width-closed;
-  right: 0;
-  height: $toolbar-height;
-  transition: all 0.3s ease;
-  display: flex;
-  padding: 0 16px;
-  flex-direction: row;
-  align-items: center;
-  white-space: nowrap;
-  letter-spacing: normal;
-  border-top-left-radius: 8px;
-  overflow-y: hidden;
-  overflow-x: auto;
-}
-
 .sidebar {
   position: fixed;
+  z-index: 1;
   top: $toolbar-height;
   left: 0;
   bottom: 0;
   width: $toolbar-width-closed;
-  transition: all 0.3s ease;
-  box-shadow: 5px 2px 4px -1px rgba(0, 0, 0, 0.2),
-    4px 4px 5px 0px rgba(0, 0, 0, 0.14);
+  transition: all 0.3s ease-in-out;
+  box-shadow: 5px 2px 4px -1px rgba(0, 0, 0, 0.2), 4px 4px 5px 0px rgba(0, 0, 0, 0.14);
 }
 
 .sidebar .nav-links {
@@ -112,7 +102,7 @@ $toolbar-width-opened: 264px;
   left: 0;
   bottom: 0;
   height: $toolbar-width-closed;
-  transition: all 0.3s ease;
+  transition: all 0.3s ease-in-out;
   display: flex;
   align-items: center;
   white-space: nowrap;
@@ -147,20 +137,10 @@ $toolbar-width-opened: 264px;
   align-items: baseline;
 }
 
-.app-content {
-  position: absolute;
-  top: $toolbar-height;
-  left: $toolbar-width-closed;
-  right: 0;
-  // bottom: 0;
-  padding: 16px;
-  transition: all 0.3s ease;
-}
-
 .nav-links li {
   position: relative;
   list-style: none;
-  transition: all 0.4s ease;
+  transition: all 0.3s ease-in-out;
   text-decoration: none;
 }
 
@@ -192,201 +172,14 @@ $toolbar-width-opened: 264px;
 .nav-links li button .link-name {
   margin-left: 16px;
 }
-/* 
-.sidebar.close .nav-links{
-  overflow: visible;
-}
-.sidebar .nav-links::-webkit-scrollbar{
-  display: none;
-}
-.sidebar .nav-links li{
-  position: relative;
-  list-style: none;
-  transition: all 0.4s ease;
-}
-.sidebar .nav-links li:hover{
-  background: #1d1b31;
-}
-.sidebar .nav-links li .iocn-link{
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.sidebar.close .nav-links li .iocn-link{
-  display: block
-}
-.sidebar .nav-links li i{
-  height: 50px;
-  min-width: 64px;
-  text-align: center;
-  line-height: 50px;
-  color: #fff;
-  font-size: 20px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-.sidebar .nav-links li.showMenu i.arrow{
-  transform: rotate(-180deg);
-}
-.sidebar.close .nav-links i.arrow{
-  display: none;
-}
-.sidebar .nav-links li a{
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-}
-.sidebar .nav-links li a .link_name{
-  font-size: 18px;
-  font-weight: 400;
-  color: #fff;
-  transition: all 0.4s ease;
-}
-.sidebar.close .nav-links li a .link_name{
-  opacity: 0;
-  pointer-events: none;
-}
-.sidebar .nav-links li .sub-menu{
-  padding: 6px 6px 14px 80px;
-  margin-top: -10px;
-  background: #1d1b31;
-  display: none;
-}
-.sidebar .nav-links li.showMenu .sub-menu{
-  display: block;
-}
-.sidebar .nav-links li .sub-menu a{
-  color: #fff;
-  font-size: 15px;
-  padding: 5px 0;
-  white-space: nowrap;
-  opacity: 0.6;
-  transition: all 0.3s ease;
-}
-.sidebar .nav-links li .sub-menu a:hover{
-  opacity: 1;
-}
-.sidebar.close .nav-links li .sub-menu{
-  position: absolute;
-  left: 100%;
-  top: -10px;
-  margin-top: 0;
-  padding: 10px 20px;
-  border-radius: 0 6px 6px 0;
-  opacity: 0;
-  display: block;
-  pointer-events: none;
-  transition: 0s;
-}
-.sidebar.close .nav-links li:hover .sub-menu{
-  top: 0;
-  opacity: 1;
-  pointer-events: auto;
-  transition: all 0.4s ease;
-}
-.sidebar .nav-links li .sub-menu .link_name{
-  display: none;
-}
-.sidebar.close .nav-links li .sub-menu .link_name{
-  font-size: 18px;
-  opacity: 1;
-  display: block;
-}
-.sidebar .nav-links li .sub-menu.blank{
-  opacity: 1;
-  pointer-events: auto;
-  padding: 3px 20px 6px 16px;
-  opacity: 0;
-  pointer-events: none;
-}
-.sidebar .nav-links li:hover .sub-menu.blank{
-  top: 50%;
-  transform: translateY(-50%);
-}
 
-
-.sidebar .profile-details{
+::ng-deep .frame-content {
   position: fixed;
+  top: $toolbar-height;
+  left: $toolbar-width-closed;
+  right: 0;
   bottom: 0;
-  width: 260px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background: #1d1b31;
-  padding: 12px 0;
-  transition: all 0.3s ease;
+  padding: 16px;
+  transition: all 0.3s ease-in-out;
+  overflow: auto;
 }
-.sidebar.close .profile-details{
-  background: none;
-}
-.sidebar.close .profile-details{
-  width: 64px;
-}
-.sidebar .profile-details .profile-content{
-  display: flex;
-  align-items: center;
-}
-.sidebar .profile-details img{
-  height: 52px;
-  width: 52px;
-  object-fit: cover;
-  border-radius: 16px;
-  margin: 0 14px 0 12px;
-  background: #1d1b31;
-  transition: all 0.3s ease;
-}
-.sidebar.close .profile-details img{
-  padding: 10px;
-}
-.sidebar .profile-details .profile_name,
-.sidebar .profile-details .job{
-  color: #fff;
-  font-size: 18px;
-  font-weight: 500;
-  white-space: nowrap;
-}
-.sidebar.close .profile-details i,
-.sidebar.close .profile-details .profile_name,
-.sidebar.close .profile-details .job{
-  display: none;
-}
-.sidebar .profile-details .job{
-  font-size: 12px;
-}
-
-.home-section{
-  position: relative;
-  background: #E4E9F7;
-  height: 100vh;
-  left: 260px;
-  width: calc(100% - 260px);
-  transition: all 0.5s ease;
-}
-.sidebar.close ~ .home-section{
-  left: 64px;
-  width: calc(100% - 64px);
-}
-.home-section .home-content{
-  height: 60px;
-  display: flex;
-  align-items: center;
-}
-.home-section .home-content .bx-menu,
-.home-section .home-content .text{
-  color: #11101d;
-  font-size: 35px;
-}
-.home-section .home-content .bx-menu{
-  margin: 0 15px;
-  cursor: pointer;
-}
-.home-section .home-content .text{
-  font-size: 26px;
-  font-weight: 600;
-}
-@media (max-width: 420px) {
-  .sidebar.close .nav-links li .sub-menu{
-    display: none;
-  }
-}
- */
