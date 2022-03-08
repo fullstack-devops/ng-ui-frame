@@ -3,21 +3,21 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
-import { FrameToolbarHeaderComponent } from './frame-toolbar-header.component';
+import { SubComponent } from './sub.component';
 
-describe('FrameToolbarHeaderComponent', () => {
-  let component: FrameToolbarHeaderComponent;
-  let fixture: ComponentFixture<FrameToolbarHeaderComponent>;
+describe('SubComponent', () => {
+  let component: SubComponent;
+  let fixture: ComponentFixture<SubComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FrameToolbarHeaderComponent ]
+      declarations: [ SubComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(FrameToolbarHeaderComponent);
+    fixture = TestBed.createComponent(SubComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

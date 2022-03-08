@@ -8,10 +8,19 @@ import { MatCardModule } from '@angular/material/card';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { MatButtonModule } from '@angular/material/button';
+import { MatBadgeModule } from '@angular/material/badge';
+import { MatIconModule } from '@angular/material/icon';
+import { HomeComponent } from './content/home/home.component';
+import { TestComponent } from './content/test/test.component';
+import { SubComponent } from './content/home/sub/sub.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HomeComponent,
+    TestComponent,
+    SubComponent
   ],
   imports: [
     BrowserModule,
@@ -19,7 +28,10 @@ import { AppComponent } from './app.component';
     AppRoutingModule,
     NgUiFrameModule,
     MatInputModule,
-    MatCardModule
+    MatIconModule,
+    MatCardModule,
+    MatButtonModule,
+    MatBadgeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

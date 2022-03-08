@@ -1,26 +1,24 @@
 <div class="frame-toolbar-logo" [class.opened]="!isClosed">
-    <!-- <div class="logo-span"> -->
-    <div class="logo">
-        <button mat-icon-button (click)="isClosed = !isClosed">
-            <div class="logo-picture" *ngIf="frameConfig.logo != ''"
-                style="background-image: url('{{ frameConfig.logo }}');">
+    <div class="logo-span">
+        <div class="logo">
+            <button mat-icon-button (click)="toggleSidemenu()">
+                <div class="logo-picture" *ngIf="frameConfig.logo != ''"
+                    style="background-image: url('{{ frameConfig.logo }}');">
 
-            </div>
-            <span class="material-icons" *ngIf="frameConfig.logo === ''">
-                menu
-            </span>
-        </button>
+                </div>
+                <span class="material-icons" *ngIf="frameConfig.logo === ''">
+                    menu
+                </span>
+            </button>
+        </div>
+        <div class="app-name">
+            <span *ngIf="!isClosed">{{frameConfig.appName}}</span>
+        </div>
     </div>
-    <div class="app-name" *ngIf="!isClosed">
-        <span>{{frameConfig.appName}}</span>
-    </div>
-    <!-- </div> -->
 </div>
-<!-- mat-elevation-z4 -->
 
-<frame-toolbar [class.opened]="!isClosed">
-    <ng-content></ng-content>
-</frame-toolbar>
+<ng-content select="frame-toolbar"></ng-content>
+
 
 <div class="sidebar" [class.opened]="!isClosed">
     <!-- Logo / Branding -->
@@ -31,8 +29,8 @@
     <!-- Navigation -->
     <ul class="nav-links">
         <li>
-            <button mat-button *ngFor="let item of navList" [class.active]="item.name === isActiveNav"
-                (click)="setNavActive(item.name)" [routerLink]="item.link">
+            <button mat-button *ngFor="let item of navList" [class.active]="item.link === isActivePath"
+                [routerLink]="item.link">
                 <span class="material-icons">
                     {{item.icon}}
                 </span>
@@ -71,6 +69,5 @@
     </div>
 </div>
 
-<frame-app-content [class.opened]="!isClosed">
-    <ng-content></ng-content>
-</frame-app-content>
+
+<ng-content select="frame-app-content"></ng-content>

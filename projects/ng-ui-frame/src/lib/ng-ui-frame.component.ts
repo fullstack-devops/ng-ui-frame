@@ -1,5 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, HostBinding, Input, OnInit } from '@angular/core';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+import { filter, map } from 'rxjs';
 import { NavItem, NavUser, FrameConfig, stringOfLength } from './ng-ui-frame.modules';
+import { NgUiFrameService } from './ng-ui-frame.service';
 
 @Component({
   selector: 'ng-ui-frame',
@@ -20,29 +23,40 @@ export class NgUiFrameComponent implements OnInit {
   };
 
   isClosed: boolean = true
-  isActiveNav: string = ''
+  isActivePath: string = ''
 
-
-
-  constructor() { }
+  constructor(private frameService: NgUiFrameService,
+    private router: Router,
+    private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
-    /* let arrow = document.querySelectorAll(".arrow");
-    for (var i = 0; i < arrow.length; i++) {
-      arrow[i].addEventListener("click", (e)=>{
-     let arrowParent = e.target.parentElement.parentElement;//selecting main parent of arrow
-     arrowParent.classList.toggle("showMenu");
+    this.router.events
+      .pipe(
+        filter((event) => event instanceof NavigationEnd),
+        map(() => {
+          const child = this.activatedRoute.firstChild;
+          return child
+        })
+      )
+      .subscribe((ttl: ActivatedRoute | null) => {
+        console.log(this.router.url)
+        ttl?.url.subscribe(obj => {
+          this.isActivePath = obj[0].path
+        })
       });
-    } */
+  }
+
+  toggleSidemenu() {
+    this.frameService.isMenuClosed.emit(!this.isClosed)
+    this.isClosed = !this.isClosed
   }
 
   isNavActive(name: string): boolean {
-    console.log(name === this.isActiveNav)
-    return name === this.isActiveNav
+    return name === this.isActivePath
   }
-  setNavActive(name: string) {
+  /*setNavActive(name: string) {
     this.isActiveNav = name
     console.log(name, this.isActiveNav)
-  }
+  } */
 
 }

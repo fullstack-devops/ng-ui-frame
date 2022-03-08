@@ -3,30 +3,29 @@ $toolbar-width-closed: 64px;
 $toolbar-width-opened: 264px;
 
 // Toolbar-logo
-.frame-toolbar {
-  position: absolute;
-  z-index: 1;
-  top: 0;
-  left: $toolbar-width-closed;
-  right: 0;
-  height: $toolbar-height;
-}
-
 .frame-toolbar-logo {
-  position: absolute;
+  position: fixed;
   z-index: 1;
   top: 0;
   left: 0;
   width: $toolbar-width-closed;
   height: $toolbar-height;
-  transition: all 0.3s ease;
-  white-space: nowrap;
-  display: flex;
-  justify-content: space-between;
+  transition: all 0.3s ease-in-out;
+}
+::ng-deep .frame-toolbar {
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: $toolbar-width-closed;
+  transition: all 0.3s ease-in-out;
+  right: 0;
+  height: $toolbar-height;
+  box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14),
+    0px 1px 10px 0px rgba(0, 0, 0, 0.12);
 }
 
-.frame-app-content.opened,
-.frame-toolbar.opened {
+::ng-deep .frame-app-content.opened,
+::ng-deep .frame-toolbar.opened {
   left: $toolbar-width-opened !important;
 }
 
@@ -35,7 +34,15 @@ $toolbar-width-opened: 264px;
   width: $toolbar-width-opened !important;
 }
 
-.frame-toolbar-logo .app-name {
+.frame-toolbar-logo .logo-span {
+  width: 100%;
+  height: $toolbar-height;
+  white-space: nowrap;
+  display: flex;
+  justify-content: space-between;
+}
+
+.frame-toolbar-logo .logo-span .app-name {
   width: calc(100% - $toolbar-width-closed);
   height: $toolbar-height;
   font-size: 24px;
@@ -44,14 +51,14 @@ $toolbar-width-opened: 264px;
   align-items: center;
 }
 
-.frame-toolbar-logo .logo {
+.frame-toolbar-logo .logo-span .logo {
   width: $toolbar-width-closed;
   height: $toolbar-height;
   display: flex;
   justify-content: center;
 }
 
-.frame-toolbar-logo .logo .logo-picture {
+.frame-toolbar-logo .logo-span .logo .logo-picture {
   background-size: cover;
   height: 48px;
   width: 48px;
@@ -59,7 +66,7 @@ $toolbar-width-opened: 264px;
   object-fit: cover;
 }
 
-.frame-toolbar-logo .logo button {
+.frame-toolbar-logo .logo-span .logo button {
   width: $toolbar-height;
   height: $toolbar-height;
 }
@@ -71,7 +78,7 @@ $toolbar-width-opened: 264px;
   left: 0;
   bottom: 0;
   width: $toolbar-width-closed;
-  transition: all 0.3s ease;
+  transition: all 0.3s ease-in-out;
   box-shadow: 5px 2px 4px -1px rgba(0, 0, 0, 0.2), 4px 4px 5px 0px rgba(0, 0, 0, 0.14);
 }
 
@@ -95,7 +102,7 @@ $toolbar-width-opened: 264px;
   left: 0;
   bottom: 0;
   height: $toolbar-width-closed;
-  transition: all 0.3s ease;
+  transition: all 0.3s ease-in-out;
   display: flex;
   align-items: center;
   white-space: nowrap;
@@ -133,7 +140,7 @@ $toolbar-width-opened: 264px;
 .nav-links li {
   position: relative;
   list-style: none;
-  transition: all 0.4s ease;
+  transition: all 0.3s ease-in-out;
   text-decoration: none;
 }
 
@@ -166,12 +173,13 @@ $toolbar-width-opened: 264px;
   margin-left: 16px;
 }
 
-.frame-app-content {
-  position: absolute;
+::ng-deep .frame-app-content {
+  position: fixed;
   top: $toolbar-height;
   left: $toolbar-width-closed;
   right: 0;
   bottom: 0;
   padding: 16px;
-  transition: all 0.3s ease;
+  transition: all 0.3s ease-in-out;
+  overflow: auto;
 }

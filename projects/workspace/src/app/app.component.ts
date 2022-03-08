@@ -1,5 +1,5 @@
-import { FrameConfig } from './../../../ng-ui-frame/src/lib/ng-ui-frame.modules';
 import { Component } from '@angular/core';
+import { FrameConfig } from 'projects/ng-ui-frame/src/public-api';
 import { NavItem, NavUser } from 'projects/ng-ui-frame/src/public-api';
 
 @Component({
@@ -22,19 +22,19 @@ export class AppComponent {
   }
   navList: NavItem[] = [
     {
-      name: 'Dashboard',
-      icon: 'dashboard',
-      link: 'test'
-    },
-    {
       name: 'Home',
       icon: 'home',
+      link: 'home'
+    },
+    {
+      name: 'Test',
+      icon: 'dashboard',
       link: 'test'
     },
     {
       name: 'Settings',
       icon: 'settings',
-      link: 'test'
+      link: 'anothertest'
     }
   ]
 }

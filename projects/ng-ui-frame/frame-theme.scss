@@ -15,12 +15,13 @@
     fill: mat-color($foreground, text);
   }
 
-  .frame-toolbar-logo {
+  .frame-toolbar-logo,
+  .frame-toolbar-logo .logo-span {
     background-color: mat-color($background, app-bar);
     color: mat-color($foreground, text);
   }
 
-  .header-toolbar .frame-toolbar {
+  .frame-toolbar {
     background-color: mat-color($background, background);
     color: mat-color($foreground, text);
   }
@@ -36,7 +37,7 @@
 
   .sidebar .nav-links li .active {
     border-left: 4px mat-color($primary, default) inset;
-    background-color: rgba($color:  mat-color($primary, default), $alpha: 0.1);
+    background-color: rgba($color: mat-color($primary, default), $alpha: 0.1);
   }
 
   .sidebar .nav-links li button:not(.active) {

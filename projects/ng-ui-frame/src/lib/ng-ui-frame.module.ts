@@ -1,24 +1,30 @@
-import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NgUiFrameComponent } from './ng-ui-frame.component';
-
+import { BrowserModule } from '@angular/platform-browser';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
-import { BrowserModule } from '@angular/platform-browser';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatMenuModule } from '@angular/material/menu';
 import { RouterModule } from '@angular/router';
+
+import { NgUiFrameComponent } from './ng-ui-frame.component';
 import { FrameToolbarComponent } from './components/frame-toolbar/frame-toolbar.component';
-import { FrameToolbarHeaderComponent } from './components/frame-toolbar-header/frame-toolbar-header.component';
 import { FrameAppContentComponent } from './components/frame-app-content/frame-app-content.component';
+
+import { FrameToolbarTitleDirective } from './components/frame-toolbar/directives/frame-toolbar-title.directive';
+import { FrameToolbarCenterDirective } from './components/frame-toolbar/directives/frame-toolbar-center.directive';
+import { FrameToolbarSideDirective } from './components/frame-toolbar/directives/frame-toolbar-side.directive';
 
 
 @NgModule({
   declarations: [
     NgUiFrameComponent,
     FrameToolbarComponent,
-    FrameToolbarHeaderComponent,
-    FrameAppContentComponent
+    FrameAppContentComponent,
+    /* Direktives */
+    FrameToolbarTitleDirective,
+    FrameToolbarCenterDirective,
+    FrameToolbarSideDirective
   ],
   imports: [
     BrowserModule,
@@ -27,16 +33,16 @@ import { FrameAppContentComponent } from './components/frame-app-content/frame-a
     MatIconModule,
     MatButtonModule,
     MatDividerModule,
-    MatMenuModule
+    MatMenuModule,
   ],
   exports: [
     NgUiFrameComponent,
     FrameToolbarComponent,
-    FrameToolbarHeaderComponent,
-    FrameAppContentComponent
-  ],
-  schemas: [
-    CUSTOM_ELEMENTS_SCHEMA
+    FrameAppContentComponent,
+    /* Direktives */
+    FrameToolbarTitleDirective,
+    FrameToolbarCenterDirective,
+    FrameToolbarSideDirective
   ]
 })
 export class NgUiFrameModule { }
