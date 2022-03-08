@@ -13,12 +13,10 @@ add to your local `.npmrc` the following line to be able to use this package:
 
 And install it:
  - yarn
- 
     ```javascript
     yarn add @fullstack-devops/ng-ui-frame`
     ```
- - npm: `npm install @fullstack-devops/ng-ui-frame`
-
+ - npm
     ```javascript
     npm install @fullstack-devops/ng-ui-frame`
     ```
