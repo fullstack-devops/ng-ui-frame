@@ -4,11 +4,6 @@
 
 At some point there will be a documentation...
 
-Some Screenshots:
-![image](./docs/pictures/sidenav-closed.png)
-![image](./docs/pictures/sidenav-opened.png)
-
-
 ## Installation
 
 add to your local `.npmrc` the following line to be able to use this package:
@@ -27,6 +22,10 @@ And install it:
     ```javascript
     npm install @fullstack-devops/ng-ui-frame`
     ```
+
+## Some Screenshots:
+![image](./docs/pictures/sidenav-closed.png)
+![image](./docs/pictures/sidenav-opened.png)
 
 ## Development server
 
