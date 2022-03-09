@@ -1,7 +1,7 @@
-import { Component, HostBinding, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { filter, map } from 'rxjs';
-import { NavItem, NavUser, FrameConfig, stringOfLength } from './ng-ui-frame.modules';
+import { NavItem, NavUser, FrameConfig, stringOfLength, FrameEvent, FrameEvents } from './ng-ui-frame.modules';
 import { NgUiFrameService } from './ng-ui-frame.service';
 
 @Component({
@@ -13,6 +13,8 @@ import { NgUiFrameService } from './ng-ui-frame.service';
   },
 })
 export class NgUiFrameComponent implements OnInit {
+
+  @Output() event = new EventEmitter<FrameEvent>();
 
   @Input() navUser: NavUser | undefined;
   @Input() navList: NavItem[] = [];
@@ -54,9 +56,21 @@ export class NgUiFrameComponent implements OnInit {
   isNavActive(name: string): boolean {
     return name === this.isActivePath
   }
-  /*setNavActive(name: string) {
-    this.isActiveNav = name
-    console.log(name, this.isActiveNav)
-  } */
+
+  onSettings(): void {
+    const frameEvent: FrameEvent = {
+      type: FrameEvents.SETTINGS,
+      data: {},
+    }
+    this.event.emit(frameEvent);
+  }
+
+  onLogout(): void {
+    const frameEvent: FrameEvent = {
+      type: FrameEvents.LOGOUT,
+      data: {},
+    }
+    this.event.emit(frameEvent);
+  }
 
 }
