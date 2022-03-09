@@ -42,20 +42,34 @@ $toolbar-width-opened: 264px;
   justify-content: space-between;
 }
 
-.frame-toolbar-logo .logo-span .app-name {
-  width: calc(100% - $toolbar-width-closed);
-  height: $toolbar-height;
-  font-size: 24px;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-}
-
 .frame-toolbar-logo .logo-span .logo {
   width: $toolbar-width-closed;
   height: $toolbar-height;
   display: flex;
   justify-content: center;
+}
+
+.frame-pic-button-wrapper {
+  width: 64px;
+  height: 64px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  button {
+    width: 48px;
+    height: 48px;
+    line-height: 48px;
+  }
+
+  .pic {
+    background-size: cover;
+    height: 48px;
+    width: 48px;
+    flex-shrink: 0;
+    object-fit: cover;
+    border-radius: 50%;
+  }
 }
 
 .frame-toolbar-logo .logo-span .logo .logo-picture {
@@ -88,12 +102,11 @@ $toolbar-width-opened: 264px;
   overflow: auto;
 }
 
-.sidebar .app-name {
-  width: 100%;
-  height: 24px;
+.sidebar-name-span {
+  width: calc(100% - $toolbar-width-closed);
   display: flex;
-  justify-content: center;
-  margin: 5px 0;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 .sidebar .profile {
@@ -105,14 +118,6 @@ $toolbar-width-opened: 264px;
   transition: all 0.3s ease-in-out;
   display: flex;
   align-items: center;
-  white-space: nowrap;
-}
-
-.sidebar .profile div {
-  width: calc(100% - $toolbar-width-closed);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
   white-space: nowrap;
 }
 
@@ -135,6 +140,7 @@ $toolbar-width-opened: 264px;
   display: flex;
   flex-direction: column;
   align-items: baseline;
+  width: 100%;
 }
 
 .nav-links li {

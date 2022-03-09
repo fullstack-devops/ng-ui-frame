@@ -11,6 +11,22 @@ export interface FrameConfig {
     logo: string
 }
 
+export const FrameEvents = {
+    SETTINGS: 'EVENT_SETTINGS',
+    LOGOUT: 'EVENT_LOGOUT'
+}
+
+/**
+ *  @interface FrameEvent
+ *
+ *  @type                {string}     eventtype which got fired
+ *  @data                {string}     data which get send with event
+ */
+export interface FrameEvent {
+    type: string;
+    data: any;
+}
+
 /**
  *  @interface NavItem
  *

@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { FrameConfig } from 'projects/ng-ui-frame/src/public-api';
-import { NavItem, NavUser } from 'projects/ng-ui-frame/src/public-api';
+import { FrameConfig, NavItem, NavUser, FrameEvents, FrameEvent } from 'projects/ng-ui-frame/src/public-api';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +8,7 @@ import { NavItem, NavUser } from 'projects/ng-ui-frame/src/public-api';
 })
 export class AppComponent {
   title = 'workspace';
-  
+
   frameConfig: FrameConfig = {
     appName: 'Dummy App',
     // appNameShort: stringOfLength('DUMMY', 0, 6),
@@ -37,4 +36,18 @@ export class AppComponent {
       link: 'anothertest'
     }
   ]
+
+  onEvent(frameEvent: FrameEvent) {
+    switch (frameEvent.type) {
+      case FrameEvents.SETTINGS:
+        console.log('Settings called, do something...');
+        break;
+      case FrameEvents.LOGOUT:
+        console.log('Logout called, do something...');
+        break;
+      default:
+        console.error(`unknown event fetched: ${JSON.stringify(event)}`);
+        break;
+    }
+  }
 }

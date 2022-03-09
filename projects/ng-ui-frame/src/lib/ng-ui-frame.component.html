@@ -11,8 +11,8 @@
                 </span>
             </button>
         </div>
-        <div class="app-name">
-            <span *ngIf="!isClosed">{{frameConfig.appName}}</span>
+        <div class="sidebar-name-span">
+            <span *ngIf="!isClosed" style="font-size: 24px;">{{frameConfig.appName}}</span>
         </div>
     </div>
 </div>
@@ -41,26 +41,37 @@
 
     <!-- User Profile -->
     <div class="profile" *ngIf="navUser != undefined">
-        <div class="profile-picture-wrapper">
-            <div class="profile-picture" *ngIf="navUser.profilePicture != ''"
-                style="background-image: url('{{ navUser.profilePicture }}');">
+        <!-- <div class="profile-picture" *ngIf="navUser.profilePicture != ''"
+            style="background-image: url('{{ navUser.profilePicture }}');">
 
-            </div>
             <span class="material-icons" style="font-size: 48px;" *ngIf="navUser.profilePicture === ''">
                 account_circle
             </span>
+        </div> -->
+
+        <div class="frame-pic-button-wrapper">
+            <button mat-icon-button (click)="toggleSidemenu()">
+                <div class="pic" *ngIf="navUser.profilePicture != ''"
+                    style="background-image: url('{{ navUser.profilePicture }}');">
+                </div>
+                <span class="material-icons" *ngIf="navUser.profilePicture === ''">
+                    account_circle
+                </span>
+            </button>
         </div>
-        <div *ngIf="!isClosed">
+
+
+        <div class="sidebar-name-span" *ngIf="!isClosed">
             <div class="user-infos">
                 <span style="font-size: 14px;">{{navUser.name}}</span>
                 <span style="font-size: 10px;">{{navUser.role}}</span>
             </div>
-            <button mat-icon-button>
+            <button mat-icon-button (click)="onSettings()">
                 <span class="material-icons">
                     settings
                 </span>
             </button>
-            <button mat-icon-button>
+            <button mat-icon-button (click)="onLogout()">
                 <span class="material-icons">
                     logout
                 </span>
