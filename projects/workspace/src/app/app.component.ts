@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { FrameConfig, NavItem, NavUser, FrameEvents, FrameEvent } from 'projects/ng-ui-frame/src/public-api';
+import { FrameConfig, NavUser, FrameEvents, FrameEvent } from 'projects/ng-ui-frame/src/public-api';
+import { routes } from './app-routing.module';
 
 @Component({
   selector: 'app-root',
@@ -8,6 +9,7 @@ import { FrameConfig, NavItem, NavUser, FrameEvents, FrameEvent } from 'projects
 })
 export class AppComponent {
   title = 'workspace';
+  appRoutes = routes;
 
   frameConfig: FrameConfig = {
     appName: 'Dummy App',
@@ -19,28 +21,11 @@ export class AppComponent {
     name: 'Some User',
     role: 'Engineer'
   }
-  navList: NavItem[] = [
-    {
-      name: 'Home',
-      icon: 'home',
-      link: 'home'
-    },
-    {
-      name: 'Test',
-      icon: 'dashboard',
-      link: 'test'
-    },
-    {
-      name: 'Settings',
-      icon: 'settings',
-      link: 'anothertest'
-    }
-  ]
 
   onEvent(frameEvent: FrameEvent) {
     switch (frameEvent.type) {
-      case FrameEvents.SETTINGS:
-        console.log('Settings called, do something...');
+      case FrameEvents.MANAGE_ACCOUNT:
+        console.log('Manage Account called, do something...');
         break;
       case FrameEvents.LOGOUT:
         console.log('Logout called, do something...');
