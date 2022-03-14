@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { filter, map } from 'rxjs';
-import { NavItem, NavUser, FrameConfig, stringOfLength, FrameEvent, FrameEvents } from './ng-ui-frame.modules';
+import { NavUser, FrameConfig, FrameEvent, FrameEvents, FrameRoutes } from './ng-ui-frame.modules';
 import { NgUiFrameService } from './ng-ui-frame.service';
 
 @Component({
@@ -17,7 +17,7 @@ export class NgUiFrameComponent implements OnInit {
   @Output() event = new EventEmitter<FrameEvent>();
 
   @Input() navUser: NavUser | undefined;
-  @Input() navList: NavItem[] = [];
+  @Input() appRoutes: FrameRoutes = [];
   @Input() frameConfig: FrameConfig = {
     appName: 'Dummy App',
     // appNameShort: stringOfLength('DUMMY', 0, 6),
@@ -26,12 +26,16 @@ export class NgUiFrameComponent implements OnInit {
 
   isClosed: boolean = true
   isActivePath: string = ''
+  navList: FrameRoutes = []
 
   constructor(private frameService: NgUiFrameService,
     private router: Router,
     private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.navList = this.appRoutes.filter(elm => {
+      return elm.data?.displaySidemenu === true
+    });
     this.router.events
       .pipe(
         filter((event) => event instanceof NavigationEnd),
@@ -57,9 +61,9 @@ export class NgUiFrameComponent implements OnInit {
     return name === this.isActivePath
   }
 
-  onSettings(): void {
+  onManageAccount(): void {
     const frameEvent: FrameEvent = {
-      type: FrameEvents.SETTINGS,
+      type: FrameEvents.MANAGE_ACCOUNT,
       data: {},
     }
     this.event.emit(frameEvent);

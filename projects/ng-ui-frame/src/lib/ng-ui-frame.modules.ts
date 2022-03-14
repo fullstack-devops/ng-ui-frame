@@ -1,3 +1,5 @@
+import { Data, Route } from "@angular/router";
+
 /**
  *  @interface NavItem
  *
@@ -11,9 +13,9 @@ export interface FrameConfig {
     logo: string
 }
 
-export const FrameEvents = {
-    SETTINGS: 'EVENT_SETTINGS',
-    LOGOUT: 'EVENT_LOGOUT'
+export enum FrameEvents {
+    MANAGE_ACCOUNT = 'EVENT_MANAGE_ACCOUNT',
+    LOGOUT = 'EVENT_LOGOUT'
 }
 
 /**
@@ -28,19 +30,6 @@ export interface FrameEvent {
 }
 
 /**
- *  @interface NavItem
- *
- *  @name         {string}     displayed text, shows only in opened mode
- *  @icon         {string}     displayed icon, use **only** material-icons!
- *  @link         {string}     router link
- */
-export interface NavItem {
-    name: string
-    icon: string
-    link: string
-}
-
-/**
  *  @interface NavUser
  *
  *  @name                 {string}     displayed name of user
@@ -52,6 +41,34 @@ export interface NavUser {
     role: string
     profilePicture: string
 }
+
+interface FrameRouteData extends Data {
+    /**
+     * sould this route be visable in sidenav
+     */
+    displaySidemenu: boolean;
+    /**
+    * displayed text, shows only in opened mode
+    */
+    sidenavText: string;
+    /**
+    * displayed icon, use **only** material-icons!
+    */
+    sidenavIcon: string;
+    /**
+    * ...
+    */
+    roles?: string[];
+    /**
+    * App title dynamic
+    */
+    title?: string;
+}
+interface FrameRoute extends Route {
+    data?: FrameRouteData;
+}
+export type FrameRoutes = FrameRoute[];
+
 
 
 type StringOfLength<Min, Max> = string & {

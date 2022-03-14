@@ -1,4 +1,4 @@
-<ng-ui-frame [frameConfig]="frameConfig" [navUser]="navUser" [navList]="navList" (event)="onEvent($event)">
+<ng-ui-frame [frameConfig]="frameConfig" [navUser]="navUser" [appRoutes]="appRoutes" (event)="onEvent($event)">
   <frame-toolbar>
     <frame-toolbar-title>Current App Title</frame-toolbar-title>
 
@@ -17,7 +17,7 @@
     <frame-toolbar-side>
       <a>Test the side</a>
     </frame-toolbar-side>
-  
+
   </frame-toolbar>
 
   <frame-content>

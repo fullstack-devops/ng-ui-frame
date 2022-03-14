@@ -1,18 +1,22 @@
 import { NgModule } from '@angular/core';
-import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { PreloadAllModules, RouterModule } from '@angular/router';
+import { FrameRoutes } from 'projects/ng-ui-frame/src/public-api';
 import { HomeComponent } from './content/home/home.component';
 import { SubComponent } from './content/home/sub/sub.component';
 import { TestComponent } from './content/test/test.component';
 
-const routes: Routes = [
+
+export const routes: FrameRoutes = [
   {
     path: '', redirectTo: 'home', pathMatch: 'full',
-    data: {
-      displaySidemenu: false,
-    }
   },
   {
     path: 'home', component: HomeComponent,
+    data: {
+      displaySidemenu: true,
+      sidenavIcon: 'home',
+      sidenavText: 'Home'
+    },
     children: [
       {
         path: 'sub', component: SubComponent,
@@ -21,6 +25,11 @@ const routes: Routes = [
   },
   {
     path: 'test', component: TestComponent,
+    data: {
+      displaySidemenu: true,
+      sidenavIcon: 'dashboard',
+      sidenavText: 'Dashboard'
+    },
   },
 ];
 
