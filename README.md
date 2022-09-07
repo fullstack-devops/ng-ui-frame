@@ -1,8 +1,7 @@
 # NG UI Frame
 
-> Note: This project is currently in a testing phase. If you are interested please feel free to contact [me](https://github.com/eksrha)
+**Deprecated** -- moved to https://github.com/fullstack-devops/ng-mat-components
 
-At some point there will be a documentation...
 
 ## Installation
 
